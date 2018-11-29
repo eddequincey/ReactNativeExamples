@@ -16,7 +16,7 @@ export default class FlatListBasics extends Component {
             {key: 'Jimmy'},
             {key: 'Juliet'},
           ]}
-          renderItem={({item}) => <Text style={styles.item}>{item.key}</Text>}
+          renderItem={({item}) => <View style={styles.bBorder}><Text style={styles.item}>{item.key}</Text></View>}
         />
       </View>
     );
@@ -25,14 +25,17 @@ export default class FlatListBasics extends Component {
 
 const styles = StyleSheet.create({
   container: {
-   paddingTop: 20
+   
   },
   item: {
     padding: 10,
     fontSize: 18,
     height: 44,
+    backgroundColor: 'black',
+    color: 'white',
+  },
+  bBorder: {
+    borderBottomWidth: 1,
+    borderBottomColor: 'white',
   },
 })
-
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('ListExample', () => FlatListBasics);

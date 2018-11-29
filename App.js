@@ -6,7 +6,12 @@ import GPS from './GPS';
 export default class App extends React.Component {
   render() {
     return (
-      <View>
+      <View style={{
+        flex: 1,
+        flexDirection: 'column',
+        paddingTop: 22,
+        alignItems: 'stretch',
+      }}>
         <FlatListBasics />
         <GPS />
       </View>

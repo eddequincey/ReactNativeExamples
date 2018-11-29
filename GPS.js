@@ -35,8 +35,7 @@ export default class GPS extends Component {
 
 const styles = StyleSheet.create({
   container: {
-   paddingTop: 30,
-   height: 100,
+   backgroundColor: 'skyblue',
   },
   myText: {
     padding: 10,
