@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppRegistry, FlatList, StyleSheet, Text, View } from 'react-native';
+import { View } from 'react-native';
 import FlatListBasics from './FlatListBasics';
 import GPS from './GPS';
 

@@ -8,31 +8,47 @@ export default class GPS extends Component {
       this.state = {
       latitude: null,
       longitude: null,
-      storedLat: null,
-      storedLong: null,
+      storedLoc: 'Empty',
     }
+    // Reset AsyncStorage
+    let keys = ['storedLat', 'storedLong'];
+    AsyncStorage.multiRemove(keys, (err) => {
+      ('Local storage long,lat removed!');
+    });
   }
 
   onPressSet = () => {
-    AsyncStorage.multiSet([['storedLat', this.state.latitude.toString()], ['storedLong', this.state.longitude.toString()]]);
-  }
-
-  onPressGet = () => {
-
-    AsyncStorage.getItem('storedLat').then((value) => {
-      if (value !== null) {
-          console.log("Stored Latitude:", value);
-      }
-    });
     
+    AsyncStorage.multiSet([['storedLat', this.state.latitude.toString()], ['storedLong', this.state.longitude.toString()]]);
+
     Alert.alert(
-      'Your co-ordinates are:',
-      this.state.latitude.toString(),
+      'Location',
+      'Stored',
       [
         {text: 'OK', onPress: () => console.log('OK Pressed')},
       ],
       { cancelable: false }
     )
+
+  }
+
+  onPressGet = () => {
+
+    AsyncStorage.multiGet(["storedLat", "storedLong"]).then(response => {
+      if(response[0][1] !== null){
+       this.setState({
+          storedLoc: response[0][1]+','+response[1][1],
+        })
+      }
+      Alert.alert(
+        'Your stored location is:',
+        this.state.storedLoc,
+        [
+          {text: 'OK', onPress: () => console.log('OK Pressed')},
+        ],
+        { cancelable: false }
+      )  
+    })
 
   }
   
