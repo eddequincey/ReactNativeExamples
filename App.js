@@ -11,9 +11,12 @@ export default class App extends React.Component {
         flexDirection: 'column',
         paddingTop: 22,
         alignItems: 'stretch',
+        padding:2,
       }}>
-        <FlatListBasics />
+    
+
         <GPS />
+        <FlatListBasics />
       </View>
     );
   }

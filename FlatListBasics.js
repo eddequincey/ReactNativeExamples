@@ -6,6 +6,7 @@ export default class FlatListBasics extends Component {
     return (
       <View style={styles.container}>
         <FlatList
+         
           data={[
             {key: 'Devin'},
             {key: 'Jackson'},
@@ -16,6 +17,7 @@ export default class FlatListBasics extends Component {
             {key: 'Jimmy'},
             {key: 'Juliet'},
           ]}
+
           renderItem={({item}) => <View style={styles.bBorder}><Text style={styles.item}>{item.key}</Text></View>}
         />
       </View>
@@ -25,7 +27,7 @@ export default class FlatListBasics extends Component {
 
 const styles = StyleSheet.create({
   container: {
-   
+    marginTop: 20,
   },
   item: {
     padding: 10,
