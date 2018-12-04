@@ -10,26 +10,20 @@ export default class GPS extends Component {
       longitude: null,
       storedLat: null,
       storedLong: null,
-      testVarible: "this is a test",
     }
   }
 
   onPressSet = () => {
-    // this.state.latitude.toString()
-    AsyncStorage.setItem('test', this.state.latitude.toString());
-    AsyncStorage.multiSet([['storedLat', 'ed'], ['storedLong', JSON.stringify(this.state.longitude)]]);
+    AsyncStorage.multiSet([['storedLat', this.state.latitude.toString()], ['storedLong', this.state.longitude.toString()]]);
   }
 
   onPressGet = () => {
 
     AsyncStorage.getItem('storedLat').then((value) => {
-
       if (value !== null) {
-          console.log("value", value);
+          console.log("Stored Latitude:", value);
       }
     });
-    this.state.testVarible = AsyncStorage.getItem('tests');
-    console.log(this.state.testVarible);
     
     Alert.alert(
       'Your co-ordinates are:',

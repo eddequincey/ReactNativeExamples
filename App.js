@@ -13,10 +13,14 @@ export default class App extends React.Component {
         alignItems: 'stretch',
         padding:2,
       }}>
-    
 
+        {/* Comment/un-comment to see each example (or both at the same time) */}
+        {/* GPS Example */}
         <GPS />
-        <FlatListBasics />
+        
+        {/* List Example */}
+        {/* <FlatListBasics /> */}
+
       </View>
     );
   }
